@@ -4,7 +4,7 @@ import React from 'react'
 
 const Profil = (props) => {
       return(
-        <div className='container card mt-5 ' style={{width: '25%'}}>
+        <div className='container card mt-5 mb-5' style={{width: '25%'}}>
             <div className='text-center'>
                 <div className='card-header mb-5'>
                     <img src={props.info.imgSrc} alt='logo' style={{maxWidth: '100%'}}/>

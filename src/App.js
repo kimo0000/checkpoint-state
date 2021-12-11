@@ -4,34 +4,51 @@ import Profil from './components/Profil'
 
 class App extends Component {
   
-   state = {
+        state = {
              imgSrc:     '/images/07.jpg',
              fullName:   'touati karim',
              bio:        'im a proffesionel boxer',
              profession: 'boxer',
              show: true,
-             counter: 0,
              title: '',
+             timer: 0,
             }
+   
+
+
+  
+
+
+    componentDidMount(){
+         setInterval(() => {
+            this.setState({
+               timer: this.state.timer +1 
+        })
+    }, 1000);
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.Interval)
+  }
+  
+
 
   showProfil=()=>{
-    this.setState({
-        show: !this.state.show,
-        counter: this.state.counter +1,
-    })
-  }
+          this.setState({
+              show: !this.state.show,
+              
+             })
+     }
 
 
-  componentDidUpdate(){
-       document.title = `click ${this.state.counter} time`
-  }
 
   render(){
     return(
       <div className='text-center'>
           <button className='btn btn-danger mt-5' onClick={this.showProfil}>show profil</button>
-          <button className='btn btn-primary mt-5'>{`you have clicked ${this.state.counter} time`}</button>
+          <button className='btn btn-primary mt-5'>{`has passed ${this.state.timer} to enter page`}</button>
           {this.state.show ? <Profil info={this.state} /> : null}
+          
       </div>
     )
   }
