@@ -10,8 +10,8 @@ class Profil extends Component {
 componentDidMount(){
          setInterval(() => {
             this.setState({
-               timer: this.state.timer +1 
-        })
+                timer: this.state.timer +1
+            })
     }, 1000);
   }
 
