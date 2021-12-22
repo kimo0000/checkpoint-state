@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 class Profil extends Component {
+
      state = {
          timer: 0,
      }

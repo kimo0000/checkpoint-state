@@ -5,26 +5,23 @@ import Profil from './components/Profil'
 class App extends Component {
   
         state = {
-             imgSrc:     '/images/07.jpg',
+             imgSrc:     '/14.jpg',
              fullName:   'touati karim',
              bio:        'im a proffesionel boxer',
              profession: 'boxer',
              show: false,
-            }
-   
-  showProfil=()=>{
-         this.setState({
-           show: !this.state.show
-         })
-     }
+            };
 
 
 
   render(){
+          const { show } = this.state;
+          const showMe = show ? ('cacher profil') : ('afficher profil');
+
     return(
       <div className='text-center'>
-          <button className='btn btn-danger mt-5' onClick={this.showProfil}>show profil</button>
-          {this.state.show ? <Profil info={this.state} /> : null}
+          <button className='btn btn-danger mt-5' onClick={() => this.setState({show: !show})}>{showMe}</button>
+          {show && <Profil info={this.state} />}
           
       </div>
     )
